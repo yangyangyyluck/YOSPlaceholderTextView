@@ -97,7 +97,7 @@
     if (self.placeholderColor) {
         return self.placeholderColor;
     } else {
-        return [UIColor lightGrayColor];
+        return [[UIColor lightGrayColor] colorWithAlphaComponent:0.7];
     }
 }
 
