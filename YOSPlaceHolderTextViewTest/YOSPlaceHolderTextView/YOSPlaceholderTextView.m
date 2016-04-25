@@ -27,7 +27,7 @@
         return nil;
     }
     
-    _textViewDelegate = delegate;
+    self.textViewDelegate = delegate;
     
     [self setupSubviews];
     
@@ -163,7 +163,12 @@
 #pragma mark show or hide
 - (void)textViewDidChange:(UITextView *)textView {
     // show or hide placeholder
-    self.text = self.text;
+
+    if (self.text.length) {
+        _placeholderLabel.hidden = YES;
+    } else {
+        _placeholderLabel.hidden = NO;
+    }
     
     if ([self.textViewDelegate respondsToSelector:@selector(textViewDidChange:)]) {
         [self.textViewDelegate textViewDidChange:textView];
